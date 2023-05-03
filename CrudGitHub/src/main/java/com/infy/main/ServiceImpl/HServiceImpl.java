@@ -1,5 +1,7 @@
 package com.infy.main.ServiceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,22 @@ public class HServiceImpl implements HServiceI {
 	@Override
 	public void savestudent(Student s) {
 		hr.save(s);
+	
+	}
+
+	@Override
+	public List<Student> getstudent() {
+	List<Student>	p=hr.findAll();
+		return p;
+	}
+
+	@Override
+	public void deletestudent(int id) {
+     hr.deleteById(id);
 		
 	}
 
+	
+	
 	
 }
